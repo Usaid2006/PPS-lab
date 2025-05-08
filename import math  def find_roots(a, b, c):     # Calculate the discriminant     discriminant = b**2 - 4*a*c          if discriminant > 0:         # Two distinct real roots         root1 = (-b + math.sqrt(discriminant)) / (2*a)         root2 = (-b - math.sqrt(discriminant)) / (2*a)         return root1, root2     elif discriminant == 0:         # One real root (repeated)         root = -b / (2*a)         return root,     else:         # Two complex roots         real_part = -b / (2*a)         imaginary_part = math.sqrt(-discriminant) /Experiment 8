@@ -1,0 +1,15 @@
+a = list(map(int,input("Set A: ").split()))
+A = set(a)
+b = list(map(int,input("Set B: ").split()))
+B = set(b)
+union_set = A | B
+print("Union: ", union_set)
+
+# Intersection of Set A and Set B
+intersection_set = A & B
+print("Intersection: ", intersection_set)
+
+# Difference between Set A and Set B (A - B)
+difference_set = A - B
+print("Difference: ", difference_set)
+
