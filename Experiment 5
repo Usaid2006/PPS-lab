@@ -1,0 +1,36 @@
+import math
+
+def find_roots(a, b, c):
+    # Calculate the discriminant
+    discriminant = b**2 - 4*a*c
+    
+    if discriminant > 0:
+        # Two distinct real roots
+        root1 = (-b + math.sqrt(discriminant)) / (2*a)
+        root2 = (-b - math.sqrt(discriminant)) / (2*a)
+        return root1, root2
+    elif discriminant == 0:
+        # One real root (repeated)
+        root = -b / (2*a)
+        return root,
+    else:
+        # Two complex roots
+        real_part = -b / (2*a)
+        imaginary_part = math.sqrt(-discriminant) / (2*a)
+        return (real_part + imaginary_part*1j), (real_part - imaginary_part*1j)
+
+# Input coefficients from the user
+a = float(input("a: "))
+b = float(input("b: "))
+c = float(input("c: "))
+
+# Find the roots
+roots = find_roots(a, b, c)
+
+# Display the roots in the required format
+if len(roots) == 2:
+    real_part_format = lambda r: f"-0.00" if r.real == 0 else f"{r.real:.2f}"
+    if isinstance(roots[0], complex):
+        print(f"The roots are: {real_part_format(roots[0])}{roots[0].imag:+.2f}j and {real_part_format(roots[1])}{roots[1].imag:+.2f}j")
+    else:
+        print(f"The roots are: {roots[0]:.2f} and {roots[1]:.2f}")
