@@ -1,0 +1,23 @@
+import fibonacci_module
+
+
+
+# main_program.py
+
+import fibonacci_module
+
+# Ask for the number of terms
+n = int(input("Enter the max value: "))
+
+# Check for valid input
+if n <= 0:
+    print("Please enter a positive integer")
+else:
+    # Get the Fibonacci series for n terms
+    series = fibonacci_module.fibonacci_series_n_terms(n)
+
+    # Display the series
+    print("Fibonacci series upto", n, ":")
+    for num in series:
+        print(num, end=" ")
+
